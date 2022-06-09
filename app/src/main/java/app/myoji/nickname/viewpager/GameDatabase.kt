@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [GameInfo::class], version = 2, exportSchema = false )
+@Database(entities = [GameInfo::class], version = 1, exportSchema = false )
 abstract class GameDatabase : RoomDatabase() {
 
     abstract fun gameDao(): GameDao
@@ -23,7 +23,6 @@ abstract class GameDatabase : RoomDatabase() {
                     context.applicationContext,
                     GameDatabase::class.java,"game_database"
                 )
-               .createFromAsset("data/GameInfo.db")
                 .build()
                 INSTANCE = instance
                 return instance

@@ -1,4 +1,4 @@
-package app.myoji.nickname.viewpager
+package app.takahashi.kamesan.originalapp
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

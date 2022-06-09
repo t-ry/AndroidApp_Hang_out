@@ -8,7 +8,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "app.myoji.nickname.viewpager"
+        applicationId "app.takahashi.kamesan.originalapp"
         minSdk 23
         targetSdk 31
         versionCode 1

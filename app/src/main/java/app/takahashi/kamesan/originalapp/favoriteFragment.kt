@@ -1,11 +1,11 @@
-package app.myoji.nickname.viewpager
+package app.takahashi.kamesan.originalapp
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import app.myoji.nickname.viewpager.databinding.FragmentFavoriteBinding
+import app.takahashi.kamesan.originalapp.databinding.FragmentFavoriteBinding
 
 class favoriteFragment : Fragment(R.layout.fragment_favorite){
 

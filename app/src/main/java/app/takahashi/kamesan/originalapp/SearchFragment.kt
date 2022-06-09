@@ -1,4 +1,4 @@
-package app.myoji.nickname.viewpager
+package app.takahashi.kamesan.originalapp
 
 import android.R
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import app.myoji.nickname.viewpager.databinding.FragmentSearchBinding
+import app.takahashi.kamesan.originalapp.databinding.FragmentSearchBinding
 
-class SearchFragment :  Fragment(app.myoji.nickname.viewpager.R.layout.fragment_search)
+class SearchFragment :  Fragment(app.takahashi.kamesan.originalapp.R.layout.fragment_search)
 {
 
     private var _binding: FragmentSearchBinding? = null

@@ -1,4 +1,4 @@
-package app.myoji.nickname.viewpager
+package app.takahashi.kamesan.originalapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("app.myoji.nickname.viewpager", appContext.packageName)
+        assertEquals("app.takahashi.kamesan.originalapp", appContext.packageName)
     }
 }

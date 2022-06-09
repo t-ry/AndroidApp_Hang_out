@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="411dp"
+        tools:layout_editor_absoluteY="731dp"><![CDATA[>
+
+        ]]>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="32sp"
+            android:layout_marginEnd="16sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/player"
+                android:layout_width="182dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="16sp"
+                android:paddingTop="2sp"
+                android:paddingRight="16sp"
+                android:text="プレイ人数" />
+
+            <Spinner
+                android:id="@+id/player_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="16sp"
+                android:layout_marginEnd="16sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/difficulty"
+                    android:layout_width="76dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16sp"
+                    android:text="プレイ難度" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:orientation="vertical"
+                    android:paddingEnd="16sp">
+
+                    <CheckBox
+                        android:id="@+id/easy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="簡単" />
+
+                    <CheckBox
+                        android:id="@+id/difficult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="難しい" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginTop="8sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="146dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="16sp"
+                android:text="ゲームジャンル" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="vertical"
+                android:paddingRight="16sp">
+
+                <CheckBox
+                    android:id="@+id/playingcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="トランプゲーム" />
+
+                <CheckBox
+                    android:id="@+id/boardgame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ボードゲーム" />
+
+                <CheckBox
+                    android:id="@+id/online"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="オンラインゲーム" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginTop="8sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:padding="16sp"
+                android:text="条件" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:paddingEnd="16sp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <RadioButton
+                        android:id="@+id/all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="すべてのゲームから探す" />
+
+                    <RadioButton
+                        android:id="@+id/favorite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="お気に入りから探す" />
+
+                    <RadioButton
+                        android:id="@+id/less_played"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="遊んだことが少ないものから探す" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="8sp"
+            android:layout_marginEnd="16sp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/reset_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                app:backgroundTint="#FFFFFF"
+                app:background="@drawable/btn_round_border"
+                android:minHeight="0dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="リセット"
+                android:textColor="@drawable/button_stroke_text_color" />
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                android:background="@drawable/btn_round"
+                android:minHeight="0dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:textColor="#FFFFFF"
+                android:text="検索" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

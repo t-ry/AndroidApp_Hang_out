@@ -8,29 +8,35 @@ import androidx.room.PrimaryKey
 data class GameInfo(
 
     @PrimaryKey(autoGenerate = true)
-    val GameID: Int = 0,
+    val gameId: Int = 0,
     //ゲーム名
     @ColumnInfo(name = "game_title")
-    var GameTitle: String,
+    var gameTitle: String,
     //推奨人数
     @ColumnInfo(name = "player_number")
-    var PlayerNumber: Int,
+    var playerNumber: Int,
     //推奨最大人数
     @ColumnInfo(name = "max_player_number")
-    var MaxPlayerNumber: Int,
+    var maxPlayerNumber: Int,
+    //所要時間
+    @ColumnInfo(name = "required_time")
+    var requiredTime: Int,
     //難易度
     @ColumnInfo(name = "difficulty")
-    var Difficulty: Int,
+    var difficulty: Int,
     //ゲームのルール
     @ColumnInfo(name = "game_rule")
-    var GameRule: Int,
-    //ゲームの種別
+    var gameRule: String,
+    //ゲームの種別 (0 = トランプ, 1 = ボードゲーム, 2 = オンラインゲーム)
     @ColumnInfo(name = "kinds")
-    var Kinds: Int,
+    var kinds: Int,
+    //(オンラインゲームなら)URLを表示
+    @ColumnInfo(name = "url")
+    var url: String,
     //お気に入り
     @ColumnInfo(name = "favorite")
-    var Favorite: Int,
+    var favorite: Int,
     //遊んだ回数
     @ColumnInfo(name = "experience")
-    var Experience: Int
+    var experience: Int
 )

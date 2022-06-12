@@ -13,7 +13,7 @@ abstract class GameDatabase : RoomDatabase() {
     companion object {
         private var INSTANCE: GameDatabase? = null
 
-        fun getDatabase(context: Context): GameDatabase {
+        fun getDatabase(context: Context): GameDatabase? {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
@@ -23,6 +23,7 @@ abstract class GameDatabase : RoomDatabase() {
                     context.applicationContext,
                     GameDatabase::class.java,"game_database"
                 )
+                .allowMainThreadQueries()
                 .build()
                 INSTANCE = instance
                 return instance

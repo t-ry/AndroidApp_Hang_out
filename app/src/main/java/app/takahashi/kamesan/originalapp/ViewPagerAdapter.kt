@@ -12,7 +12,7 @@ class ViewPagerAdapter (fragmentActivity: FragmentActivity) :
     override fun createFragment(position: Int): Fragment =
         when (position){
             0-> SearchFragment()
-            1-> favoriteFragment()
+            1-> FavoriteFragment()
             2-> historyFragment()
             else -> throw IllegalAccessException()
         }

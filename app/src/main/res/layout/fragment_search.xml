@@ -12,9 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="411dp"
-        tools:layout_editor_absoluteY="731dp"><![CDATA[>
-
-        ]]>
+        tools:layout_editor_absoluteY="731dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,10 +20,11 @@
             android:layout_marginStart="16sp"
             android:layout_marginTop="32sp"
             android:layout_marginEnd="16sp"
+            android:layout_marginBottom="16sp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/player"
+                android:id="@+id/players"
                 android:layout_width="182dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="16sp"
@@ -40,53 +39,99 @@
 
         </LinearLayout>
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16sp"
-                android:layout_marginTop="16sp"
-                android:layout_marginEnd="16sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/difficulty"
-                    android:layout_width="76dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="16sp"
-                    android:text="プレイ難度" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:orientation="vertical"
-                    android:paddingEnd="16sp">
-
-                    <CheckBox
-                        android:id="@+id/easy"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="簡単" />
-
-                    <CheckBox
-                        android:id="@+id/difficult"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="難しい" />
-                </LinearLayout>
-
-            </LinearLayout>
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
+            android:layout_marginTop="16sp"
             android:layout_marginEnd="16sp"
+            android:layout_marginBottom="16sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/time_required"
+                android:layout_width="182dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="16sp"
+                android:paddingTop="2sp"
+                android:paddingRight="16sp"
+                android:text="所要時間 ( 分 ) " />
+
+            <Spinner
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="16sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/difficulty"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="16sp"
+                android:text="プレイ難度" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="vertical"
+                android:paddingEnd="16sp">
+
+                <RadioGroup
+                    android:id="@+id/radio_group_difficulty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/easy_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="簡単" />
+
+                    <RadioButton
+                        android:id="@+id/difficult_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="難しい" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
             android:layout_marginTop="8sp"
+            android:layout_marginEnd="16sp"
             android:orientation="horizontal">
 
             <TextView
@@ -105,26 +150,35 @@
                 android:orientation="vertical"
                 android:paddingRight="16sp">
 
-                <CheckBox
-                    android:id="@+id/playingcard"
+                <RadioGroup
+                    android:id="@+id/radio_group_kinds"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="トランプゲーム" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                <CheckBox
-                    android:id="@+id/boardgame"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="ボードゲーム" />
+                    <RadioButton
+                        android:id="@+id/playingcard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="トランプ" />
 
-                <CheckBox
-                    android:id="@+id/online"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="オンラインゲーム" />
+                    <RadioButton
+                        android:id="@+id/boardgames"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ボードゲーム" />
+
+                    <RadioButton
+                        android:id="@+id/online_games"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="オンラインゲーム" />
+                </RadioGroup>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -133,8 +187,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginEnd="16sp"
             android:layout_marginTop="8sp"
+            android:layout_marginEnd="16sp"
             android:orientation="horizontal">
 
             <TextView
@@ -153,9 +207,10 @@
                 android:paddingEnd="16sp">
 
                 <RadioGroup
+                    android:id="@+id/radio_group"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" >
+                    android:layout_weight="1">
 
                     <RadioButton
                         android:id="@+id/all"
@@ -166,18 +221,12 @@
                         android:text="すべてのゲームから探す" />
 
                     <RadioButton
-                        android:id="@+id/favorite"
+                        android:id="@+id/url"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="お気に入りから探す" />
 
-                    <RadioButton
-                        android:id="@+id/less_played"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="遊んだことが少ないものから探す" />
                 </RadioGroup>
 
 
@@ -200,25 +249,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16sp"
-                app:backgroundTint="#FFFFFF"
-                app:background="@drawable/btn_round_border"
                 android:minHeight="0dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:text="リセット"
-                android:textColor="@drawable/button_stroke_text_color" />
+                android:textColor="@drawable/button_stroke_text_color"
+                app:background="@drawable/btn_round_border"
+                app:backgroundTint="#00FFFFFF" />
 
             <Button
                 android:id="@+id/search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16sp"
-                android:background="@drawable/btn_round"
+                app:background="@drawable/btn_round"
                 android:minHeight="0dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:textColor="#FFFFFF"
-                android:text="検索" />
+                android:text="検索"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 

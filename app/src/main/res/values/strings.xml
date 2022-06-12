@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">かめさんプレゼンツ funny app</string>
-    <string-array name = "tabTitle">
+    <string-array name="tabTitle">
         <item>SEARCH</item>
         <item>FAVORITE</item>
         <item>HISTORY</item>
-    </string-array>>
+    </string-array>
 </resources>

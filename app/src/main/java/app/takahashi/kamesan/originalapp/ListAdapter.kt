@@ -13,29 +13,29 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.gameViewHolder>() {
     class gameViewHolder(itemView: View)
         : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.text_view)
+        val container: View = itemView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): gameViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.list_item, parent, false)
-
-        view.setOnClickListener{
-            itemClickListener?.onItemClick(gameViewHolder(view))
-        }
-
         return gameViewHolder(view)
     }
 
     var itemClickListener: OnItemClickListener? = null
 
     interface OnItemClickListener{
-        fun onItemClick(holder: gameViewHolder)
+        fun onItemClick(gameId: Int)
     }
+
     override fun getItemCount() = gameList.size
 
     override fun onBindViewHolder(holder: gameViewHolder, position: Int) {
         val currentItem = gameList[position]
         holder.textView.text = currentItem.gameTitle
+        holder.container.setOnClickListener{
+            itemClickListener?.onItemClick(currentItem.gameId)
+        }
     }
 
     fun setData(game: List<GameInfo>) {

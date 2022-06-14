@@ -1,5 +1,7 @@
 package app.takahashi.kamesan.originalapp
 
+import android.text.SpannableString
+
 // kinds
 // 0 : トランプ
 // 1 : ボードゲーム
@@ -20,7 +22,7 @@ val initialGameInfo = listOf<GameInfo>(
                 "[オールドメイド(年老いたメイド)]\n" +
                 "ジョーカーの代わりにQを1枚,Jokerを2枚抜いた51枚で行う方式。\n",
         kinds = 0,
-        url = "" ,
+        url = "",
         favorite = 0,
         experience = 0,
     ),
@@ -47,7 +49,7 @@ val initialGameInfo = listOf<GameInfo>(
     ),
     createGameInfo(
         gameId = 0,
-        gameTitle = "Gin Rummy",
+        gameTitle = "Gim Rummy",
         playerNumber = 2,
         maxPlayerNumber = 2,
         requiredTime = 60,

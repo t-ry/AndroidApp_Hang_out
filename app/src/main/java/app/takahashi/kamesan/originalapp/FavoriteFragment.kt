@@ -25,18 +25,16 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
         val recyclerview = binding.rvList
         val adapter = ListAdapter()
         recyclerview.adapter = adapter
-        adapter.setData(gameDb?.gameDao()?.getFav() ?: listOf())
+        adapter.setData(gameDb?.gameDao()?.getGameFromFav() ?: listOf())
 
         val layoutManager = LinearLayoutManager(this.requireContext())
         recyclerview.layoutManager = layoutManager
 
 
-        adapter.itemClickListener = object :ListAdapter.OnItemClickListener {
-            override fun onItemClick(holder: ListAdapter.gameViewHolder) {
-                val position = holder.layoutPosition
-                println(position.toString())
-                val intent = Intent(requireActivity(),GameInfoActivity::class.java)
-                intent.putExtra("gameId", position)
+        adapter.itemClickListener = object : ListAdapter.OnItemClickListener {
+            override fun onItemClick(gameId: Int) {
+                val intent = Intent(requireActivity(), GameInfoActivity::class.java)
+                intent.putExtra("gameId", gameId)
                 startActivity(intent)
             }
         }

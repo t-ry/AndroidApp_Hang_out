@@ -18,6 +18,7 @@ interface GameDao {
     @Delete
     fun delete(game: GameInfo)
 
+    // ゲームを登録
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertGame(game: GameInfo)
 
@@ -25,33 +26,36 @@ interface GameDao {
     @Query("select * from game_info")
     fun getAll(): List<GameInfo>
 
-    // IDからデータを取得
-    @Query("select * from game_info where gameId = :id")
-    fun getGameFromId(id: Int): GameInfo
-
-    @Query("select game_title from game_info where gameId = :id")
-    fun getGameFromDIffi(id: Int): String
-
-    @Query("select game_rule from game_info where gameId = :id")
-    fun getGameRule(id: Int): String
-
     // 全てのデータを削除
     @Query("delete from game_info")
     fun deleteAll()
 
-    // お気に入り(またはお気に入りではない)ゲームを取得
+    // IDからデータを取得
+    @Query("select * from game_info where gameId = :id")
+    fun getGameFromId(id: Int): GameInfo
+
+    // お気に入りのゲームを取得
     @Query("select * from game_info where favorite = 1")
-    fun getFav(): List<GameInfo>
+    fun getGameFromFav(): List<GameInfo>
 
-    // 難易度別にゲームを取得
-    @Query("select * from game_info where difficulty = :diff")
-    fun getGameDiff(diff: Int): List<GameInfo>
+    // 検索条件に当てはまるゲームを取得
+    @Query("select * from game_info where difficulty = 0")
+    fun getEasyGame(): List<GameInfo>
 
-    // 推奨最大人数と推奨最小人数を満たしているゲームを取得
-    @Query("select * from game_info where player_number <= :people")
-    fun getGamePeople(people: Int): List<GameInfo>
+    // 検索条件に当てはまるゲームを取得
+    @Query("select * from game_info where difficulty = 1")
+    fun getDifficultGame(): List<GameInfo>
 
-    // 条件指定検索
-    @Query("select * from game_info where difficulty = :diff and favorite = :favo and kinds = :kinds")
-    fun searchGames(favo: Int, diff: Int, kinds: Int): List<GameInfo>
+    // 検索条件に当てはまるゲームを取得
+    @Query("select * from game_info where kinds = 0")
+    fun getPlayingcardGame(): List<GameInfo>
+
+    // 検索条件に当てはまるゲームを取得
+    @Query("select * from game_info where kinds= 1")
+    fun getBoardgamesGame(): List<GameInfo>
+
+    // 検索条件に当てはまるゲームを取得
+    @Query("select * from game_info where kinds = 2")
+    fun getOnlineGame(): List<GameInfo>
+
 }

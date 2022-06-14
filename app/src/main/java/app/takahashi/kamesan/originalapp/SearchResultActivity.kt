@@ -20,9 +20,38 @@ class SearchResultActivity : AppCompatActivity() {
             setContentView(this.root)
         }
 
+        val playerNumber = when (intent.getIntExtra("player", 0)) {
+            0 -> 1
+            1 -> 2
+            2 -> 3
+            3 -> 4
+            else -> 5
+        }
+        val requiredTime = when (intent.getIntExtra("time", 0)) {
+            0 -> 30
+            1 -> 60
+            else -> 90
+        }
+
         val recyclerView = binding.rvList
         val adapter = ListAdapter()
         recyclerView.adapter = adapter
-        //adapter.setData(gameDb?.gameDao()?.)
+
+        val gameDao = gameDb?.gameDao()
+
+        val cardGameList =
+            if (intent.getIntExtra("kinds", 0) == 1) gameDao?.getPlayingcardGame()
+            else gameDao?.getAll()
+        val boardgamesList =
+            if(intent.getIntExtra("boardgames", 0) == 1) gameDao?.getBoardgamesGame()
+            else gameDao?.getAll()
+        val onlineGameList =
+            if(intent.getIntExtra("online", 0) == 1) gameDao?.getOnlineGame()
+            else gameDao?.getAll()
+
+        val favGameList =
+            if(intent.getIntExtra("favorite", 0) == 1) gameDao?.getGameFromFav()
+            else gameDao?.getAll()
+
     }
 }

@@ -32,11 +32,10 @@ class historyFragment: Fragment(R.layout.fragment_history) {
         recyclerview.layoutManager = layoutManager
 
 
-        adapter.itemClickListener = object : ListAdapter.OnItemClickListener {
-            override fun onItemClick(holder: ListAdapter.gameViewHolder) {
-                val position = holder.layoutPosition
-                val intent = Intent(requireActivity(), GameInfoActivity::class.java)
-                intent.putExtra("gameId", position)
+        adapter.itemClickListener = object :ListAdapter.OnItemClickListener {
+            override fun onItemClick(gameId: Int) {
+                val intent = Intent(requireActivity(),GameInfoActivity::class.java)
+                intent.putExtra("gameId", gameId)
                 startActivity(intent)
             }
         }

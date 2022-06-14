@@ -3,11 +3,13 @@ package app.takahashi.kamesan.originalapp
 import android.R
 import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.RadioButton
 import androidx.fragment.app.Fragment
 import app.takahashi.kamesan.originalapp.databinding.FragmentSearchBinding
 
@@ -16,14 +18,14 @@ class SearchFragment : Fragment(app.takahashi.kamesan.originalapp.R.layout.fragm
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private val Player = arrayOf("1", "2", "3", "4", "5+")
-    private val Time = arrayOf("30","60","90")
+    private val player = arrayOf("1", "2", "3", "4", "5+")
+    private val time = arrayOf("サクッと", "じっくり", "ガッツリ")
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -32,18 +34,18 @@ class SearchFragment : Fragment(app.takahashi.kamesan.originalapp.R.layout.fragm
         super.onViewCreated(view, savedInstanceState)
 
         val playerAdapter =
-            ArrayAdapter(this.requireContext(), android.R.layout.simple_spinner_item, Player)
+            ArrayAdapter(this.requireContext(), R.layout.simple_spinner_item, player)
         playerAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
 
         binding.playerNumber.adapter = playerAdapter
 
         val timeAdapter =
-            ArrayAdapter(this.requireContext(), android.R.layout.simple_spinner_item, Time)
+            ArrayAdapter(this.requireContext(), R.layout.simple_spinner_item, time)
         timeAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
 
         binding.time.adapter = timeAdapter
 
-        Applylistener()
+        applyListener()
 
         //  検索ボタンが押された
         binding.searchButton.setOnClickListener {
@@ -58,14 +60,16 @@ class SearchFragment : Fragment(app.takahashi.kamesan.originalapp.R.layout.fragm
         _binding = null
     }
 
-    private fun Applylistener() {
+    private fun applyListener() {
         // プレイヤーのリスナーを登録
         binding.playerNumber.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             //　アイテムが選択された時
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?, position: Int, id: Long
-            ) {}
+            ) {
+            }
+
             //　アイテムが選択されなかった
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -74,7 +78,9 @@ class SearchFragment : Fragment(app.takahashi.kamesan.originalapp.R.layout.fragm
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?, position: Int, id: Long
-            ) {}
+            ) {
+            }
+
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
@@ -85,11 +91,17 @@ class SearchFragment : Fragment(app.takahashi.kamesan.originalapp.R.layout.fragm
         // 所要時間
         intent.putExtra("time", binding.time.selectedItemPosition)
         // ゲームの難易度
-        intent.putExtra("difficulty", binding.radioGroupDifficulty.checkedRadioButtonId)
+        intent.putExtra("easy", binding.checkboxEasy.isChecked)
+        intent.putExtra("difficult", binding.checkboxDifficult.isChecked)
         // ゲームの種類
-        intent.putExtra("kinds",binding.radioGroupKinds.checkedRadioButtonId)
+        intent.putExtra("playingcard", binding.playingcard.isChecked)
+        intent.putExtra("boardgames",binding.boardgames.isChecked)
+        intent.putExtra("online",binding.onlineGames.isChecked)
         // その他の条件
-        intent.putExtra("terms", binding.radioGroup.checkedRadioButtonId)
+        val termsId = binding.radioGroup.checkedRadioButtonId
+        val termsRadioButton = binding.radioGroup.findViewById<RadioButton>(termsId)
+        val termsIndex = binding.radioGroup.indexOfChild(termsRadioButton)
+        intent.putExtra("favorite", termsIndex)
     }
 
 }

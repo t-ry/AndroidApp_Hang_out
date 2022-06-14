@@ -61,7 +61,7 @@
                 android:paddingLeft="16sp"
                 android:paddingTop="2sp"
                 android:paddingRight="16sp"
-                android:text="所要時間 ( 分 ) " />
+                android:text="プレイスタイル" />
 
             <Spinner
                 android:id="@+id/time"
@@ -100,27 +100,20 @@
                 android:orientation="vertical"
                 android:paddingEnd="16sp">
 
-                <RadioGroup
-                    android:id="@+id/radio_group_difficulty"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <RadioButton
-                        android:id="@+id/easy_button"
+                    <CheckBox
+                        android:id="@+id/checkbox_easy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="true"
                         android:text="簡単" />
 
-                    <RadioButton
-                        android:id="@+id/difficult_button"
+                    <CheckBox
+                        android:id="@+id/checkbox_difficult"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="難しい" />
-                </RadioGroup>
 
             </LinearLayout>
 
@@ -150,13 +143,7 @@
                 android:orientation="vertical"
                 android:paddingRight="16sp">
 
-                <RadioGroup
-                    android:id="@+id/radio_group_kinds"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/playingcard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -164,20 +151,19 @@
                         android:checked="true"
                         android:text="トランプ" />
 
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/boardgames"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="ボードゲーム" />
 
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/online_games"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="オンラインゲーム" />
-                </RadioGroup>
 
             </LinearLayout>
 

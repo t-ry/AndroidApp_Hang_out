@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
             setContentView(this.root)
         }
 
-        val pref: SharedPreferences = getSharedPreferences("first_start_up",Context.MODE_PRIVATE)
-        val cnt = pref.getBoolean("first_start_up",true)
+        val pref: SharedPreferences = getSharedPreferences("first_start_up", Context.MODE_PRIVATE)
+        val cnt = pref.getBoolean("first_start_up", true)
 
 
         //初回起動
-        if(cnt){
+        //if(cnt){
             val initialList = initialGameInfo
 
             gameDb?.gameDao()?.deleteAll()
@@ -35,9 +35,9 @@ class MainActivity : AppCompatActivity() {
                 gameDb?.gameDao()?.insert(it)
             }
             val editor = pref.edit()
-            editor.putBoolean("first_start_up",false)
+            editor.putBoolean("first_start_up", false)
             editor.apply()
-       }
+        //}
 
         binding.viewPager.adapter = ViewPagerAdapter(this)
         binding.viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -46,21 +46,22 @@ class MainActivity : AppCompatActivity() {
             tab.text = resources.getStringArray(R.array.tabTitle)[position]
         }.attach()
 
-        binding.searchPageButton.setOnClickListener{ toSearchPage() }
+        binding.searchPageButton.setOnClickListener { toSearchPage() }
 
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 
-                when(position){
+                when (position) {
                     0 -> binding.searchPageButton.hide()
                     else -> binding.searchPageButton.show()
-                    }
+                }
 
             }
         })
     }
-    private fun toSearchPage(){
+
+    private fun toSearchPage() {
         binding.viewPager.currentItem = 0
     }
 }

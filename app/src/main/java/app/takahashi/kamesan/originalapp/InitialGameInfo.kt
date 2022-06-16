@@ -1,7 +1,5 @@
 package app.takahashi.kamesan.originalapp
 
-import android.text.SpannableString
-
 // kinds
 // 0 : トランプ
 // 1 : ボードゲーム
@@ -14,12 +12,12 @@ val initialGameInfo = listOf<GameInfo>(
         maxPlayerNumber = 8,
         requiredTime = 30,
         difficulty = 1,
-        gameRule = "1.親と子を決定し、親がカードを均等に配ります。\n" +
+        gameRule = "1.親と子を決定し、親がカードを均等に配る。\n" +
                 "2.手札から同じ数字のカードをペアにして捨てる。\n" +
                 "3.親の左隣の人が開始プレイヤーとなり、左隣のプレイヤーにカードを1枚ひかせる。\n" +
                 "4.引いたプレイヤーは手札に同じ数字のペアになるカードがあれば一緒に捨て、なければ手札に加える。その後、左隣のプレイヤーにかーどを1枚ひかせる。\n" +
                 "5.手札がなくなったらその時点で勝ちとなりゲームから抜け、最後の一人が残るまで繰り返す。\n" +
-                "[オールドメイド(年老いたメイド)]\n" +
+                "[オールドメイド]\n" +
                 "ジョーカーの代わりにQを1枚,Jokerを2枚抜いた51枚で行う方式。\n",
         kinds = 0,
         url = "",
@@ -34,14 +32,14 @@ val initialGameInfo = listOf<GameInfo>(
         requiredTime = 60,
         difficulty = 3,
         gameRule = "4ゲームを1セットとし,3セット(合計12ゲーム)で1マッチとする。\n" +
-                "n1マッチの層獲得ポイント数で順位が決まります。\n" +
+                "マッチの総獲得ポイント数で順位が決定する。\n" +
                 "各ゲームのポイントは「大富豪6p」「富豪4p」「貧民2p」「大貧民0p」、各セット第4ゲームに大富豪となったプレイヤーに2Pボーナス。\n" +
                 "セットが終わると階級はリセットされ、次セットの第1ゲームは階級なしで行う。\n" +
                 "[カードの強さと出し方]\n" +
                 "カードの強さ : 3から順に4,5,6,...,10,J,Q,K,A,2,Jokerと強くなる。\n" +
                 "自分の番では「場と同じ出し方で、場のカードより強いカードを出す」か「パス」のどちらかを選択する。\n" +
                 "カードを出した後、自分以外の全プレイヤーがパスしたら、そのターンは流れ、新しいターンを自分から開始できる。\n" +
-                "手持ちのカードを全部出しきったらあがりとなり、その順序で次のゲームの階級が決定し、1位より順に大富豪→符号→貧民→大貧民となる。\n",
+                "手持ちのカードを全部出しきったらあがりとなり、その順序で次のゲームの階級が決定し、1位より順に大富豪,富豪,(平民),貧民,大貧民となる。\n",
         kinds = 0,
         url = "",
         favorite = 0,
@@ -101,7 +99,7 @@ val initialGameInfo = listOf<GameInfo>(
     createGameInfo(
         gameId = 0,
         gameTitle = "GodField",
-        playerNumber = 2,
+        playerNumber = 1,
         maxPlayerNumber = 9,
         requiredTime = 1,
         difficulty = 3,
@@ -109,7 +107,7 @@ val initialGameInfo = listOf<GameInfo>(
         kinds = 2,
         url = "https://godfield.net/",
         favorite = 1,
-        experience = 0,
+        experience = 26202,
     ),
 )
 

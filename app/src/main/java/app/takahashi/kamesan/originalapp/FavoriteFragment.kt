@@ -20,14 +20,13 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentFavoriteBinding.bind(view)
 
-        layoutManager = LinearLayoutManager(this.requireContext())
-
         val recyclerview = binding.rvList
         val adapter = ListAdapter()
+
         recyclerview.adapter = adapter
         adapter.setData(gameDb?.gameDao()?.getGameFromFav() ?: listOf())
 
-        val layoutManager = LinearLayoutManager(this.requireContext())
+        layoutManager = LinearLayoutManager(this.requireContext())
         recyclerview.layoutManager = layoutManager
 
 

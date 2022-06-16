@@ -34,28 +34,20 @@ interface GameDao {
     @Query("select * from game_info where gameId = :id")
     fun getGameFromId(id: Int): GameInfo
 
+    // IDからデータを取得
+    @Query("select * from game_info where game_title = :title")
+    fun getGameFromTitle(title: String): GameInfo
+
     // お気に入りのゲームを取得
     @Query("select * from game_info where favorite = 1")
     fun getGameFromFav(): List<GameInfo>
 
-    // 検索条件に当てはまるゲームを取得
-    @Query("select * from game_info where difficulty = 0")
-    fun getEasyGame(): List<GameInfo>
-
-    // 検索条件に当てはまるゲームを取得
-    @Query("select * from game_info where difficulty = 1")
-    fun getDifficultGame(): List<GameInfo>
-
-    // 検索条件に当てはまるゲームを取得
-    @Query("select * from game_info where kinds = 0")
-    fun getPlayingcardGame(): List<GameInfo>
-
-    // 検索条件に当てはまるゲームを取得
-    @Query("select * from game_info where kinds= 1")
-    fun getBoardgamesGame(): List<GameInfo>
-
-    // 検索条件に当てはまるゲームを取得
-    @Query("select * from game_info where kinds = 2")
-    fun getOnlineGame(): List<GameInfo>
+    // 検索条件に合致するゲームを取得
+    @Query("select * from game_info where difficulty in (:diff) " +
+            "and kinds in (:kinds) " +
+            "and favorite in (:fav)" +
+            "and player_number <= :player and :player <= max_player_number " +
+            "and required_time <= :time")
+    fun searchGame(diff: List<Int>, kinds: List<Int>, fav: List<Int>, player: Int, time: Int): List<GameInfo>
 
 }
